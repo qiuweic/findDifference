@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements GameView.TouchLis
     private LinearLayout gameViewLayout;
     private GameView gameView;
     private TextView timeLabel;
+    private TextView gameLevel;
+    private ImageView backHome;
+    private ImageView pauseGame;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5;
     private int currentLevelId;
 
@@ -57,6 +61,12 @@ public class MainActivity extends AppCompatActivity implements GameView.TouchLis
         setContentView(R.layout.activity_main);
         mVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         gameViewLayout = findViewById(R.id.game_view_layout);
+        backHome = findViewById(R.id.back_home);
+        backHome.setOnClickListener(view -> backHomePage());
+        pauseGame = findViewById(R.id.pause_game);
+        pauseGame.setOnClickListener(view -> pauseOrResumeGame());
+
+        gameLevel = findViewById(R.id.game_level);
         timeLabel = findViewById(R.id.time_label);
         checkBox1 = findViewById(R.id.checkbox1);
         checkBox2 = findViewById(R.id.checkbox2);
@@ -65,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements GameView.TouchLis
         checkBox5 = findViewById(R.id.checkbox5);
 
         currentLevelId = 1;
+        gameLevel.setText("Level " + currentLevelId);
         initGameLevel(currentLevelId);
     }
 
@@ -90,12 +101,25 @@ public class MainActivity extends AppCompatActivity implements GameView.TouchLis
     }
 
     private void loadNextLevel() {
+        currentLevelId += 1;
         totalTime = 120;
         resetCheckBox();
-        gameView.loadGameLevel(2);
+        gameView.loadGameLevel(3);
+        gameLevel.setText("Level " + currentLevelId);
         gameView.setGameOver(false);
         isPlaying = true;
         startTimer();
+    }
+
+    private void backHomePage() {
+
+    }
+
+    private void pauseOrResumeGame() {
+        isPlaying = !isPlaying;
+        gameView.setGameState(!isPlaying);
+        pauseGame.setImageResource(isPlaying ? R.drawable.ic_pause_100 : R.drawable.ic_play_100);
+        if (isPlaying) startTimer();
     }
 
     private void handleVibrator() {

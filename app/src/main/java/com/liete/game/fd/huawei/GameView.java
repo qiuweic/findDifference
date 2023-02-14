@@ -24,6 +24,7 @@ public class GameView extends View {
     private final Vector<GameRule> diffVector;
     private Pair<Float, Float> errorIndex;
     private boolean gameOver = false;
+    private boolean isPaused;
     private boolean errorTouch;
     private final int pWidth;
     private final int pHeight;
@@ -44,8 +45,12 @@ public class GameView extends View {
         void onFoundAll();
     }
 
-    public void setGameOver(boolean over) {
-        gameOver = over;
+    public void setGameOver(boolean isOver) {
+        this.gameOver = isOver;
+    }
+
+    public void setGameState(boolean isPaused) {
+        this.isPaused = isPaused;
     }
 
     public GameView(Context context, int pWidth, int pHeight, int levelId, TouchListener touchListener) {
@@ -103,10 +108,11 @@ public class GameView extends View {
     @SuppressLint("ClickableViewAccessibility")
     public boolean onTouchEvent(MotionEvent event) {
         //if (gameOver) return true;
+        //if (isPaused) return true;
+
         if (event.getAction() == 0) {
             float xx = event.getX();
             float yy = event.getY();
-            //if (isPause) return true;
             errorTouch = true;
             for (int i = 0; i < diffVector.size(); i++) {
                 GameRule area = diffVector.elementAt(i);
@@ -163,11 +169,11 @@ public class GameView extends View {
 
         for (int i = 0; i < 2; i++) {
             canvas.save();
-            canvas.scale(scaleX, scaleY, 0, height * i);
+            canvas.scale(scaleX, scaleY, 2, height * i + i * 10);
             if (i == 0) { //画出top图
-                canvas.drawBitmap(getRoundedCornerBitmap(bmpTop), 0, 0, paint);
+                canvas.drawBitmap(getRoundedCornerBitmap(bmpTop), 2, 0, paint);
             } else { //画出bottom图
-                canvas.drawBitmap(getRoundedCornerBitmap(bmpBottom), 0, height * i + 20, paint);
+                canvas.drawBitmap(getRoundedCornerBitmap(bmpBottom), 2, height * i + 10, paint);
             }
             canvas.restore();
         }

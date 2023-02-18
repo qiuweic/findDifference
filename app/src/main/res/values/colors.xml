@@ -10,6 +10,12 @@
 
     <color name="green_light">#FFD4E8E2</color>
     <color name="purple">#FF8D6C9F</color>
+    <color name="purple_100">#FFC2CDE7</color>
     <color name="green_100">#FF72CAAF</color>
+    <color name="green_200">#FFC0E5E4</color>
     <color name="red_100">#FFED7899</color>
+    <color name="yellow">#FFF9E3AE</color>
+    <color name="yellow_100">#FFFAEFDE</color>
+    <color name="blue_100">#FFBBDEF9</color>
+
 </resources>

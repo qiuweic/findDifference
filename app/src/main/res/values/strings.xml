@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Find Difference</string>
+
+    <string name="language">English</string>
+    <string name="page_title_protocol">User Agreement</string>
+    <string name="page_title_privacy">Privacy Policy</string>
+    <string name="reading_protocol_confirm">Please read the terms first and check agree</string>
+    <string name="welcome_using">Welcome</string>
+    <string name="read_and_agreed">I have read and agree to the above terms</string>
+    <string name="disagree_and_exit">Disagree and exit</string>
+    <string name="privacy_content">Dear users, welcome to install this game! In order to protect your privacy and personal information, please carefully read the Privacy Policy and User Agreement before you use the software. You can use the software only after you agree and accept these terms. Thank you!</string>
+    <string name="btn_agree">Agree</string>
+
+    <string name="btn_obtain_more_time">Get 60 seconds</string>
+    <string name="btn_replay">Replay</string>
+    <string name="text_time_up">Time is up</string>
+    <string name="text_paused">Paused</string>
+    <string name="text_vibration">Vibration</string>
+    <string name="text_continue">Continue</string>
+    <string name="text_menu">Menu</string>
+    <string name="text_privacy">Privacy</string>
 </resources>

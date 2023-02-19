@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startGameActivity() {
         Intent intent = new Intent(this, GameActivity.class);
-        intent.putExtra("levelId", levelId);
+        intent.putExtra("levelId ", levelId);
         startActivity(intent);
     }
 

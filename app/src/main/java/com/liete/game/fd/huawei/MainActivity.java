@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
         levelId = getCurrentLevelId();
         currentLevel = findViewById(R.id.btn_current_level);
-        currentLevel.setText("Level" + levelId);
+        currentLevel.setText("Level " + levelId);
         currentLevel.setOnClickListener(view -> startGameActivity());
     }
 
     private void startGameActivity() {
         Intent intent = new Intent(this, GameActivity.class);
-        intent.putExtra("levelId ", levelId);
+        intent.putExtra("levelId", levelId);
         startActivity(intent);
     }
 

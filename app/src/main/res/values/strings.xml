@@ -13,10 +13,12 @@
 
     <string name="btn_obtain_more_time">Get 60 seconds</string>
     <string name="btn_replay">Replay</string>
-    <string name="text_time_up">Time is up</string>
-    <string name="text_paused">Paused</string>
+    <string name="btn_exit">Exit</string>
+    <string name="text_time_up">TIME IS UP</string>
+    <string name="text_paused">PAUSED</string>
     <string name="text_vibration">Vibration</string>
     <string name="text_continue">Continue</string>
     <string name="text_menu">Menu</string>
     <string name="text_privacy">Privacy</string>
+    <string name="text_win">YOU WIN</string>
 </resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink"
+    tools:context=".GameActivity">
+
+    <RelativeLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/back_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_back_101" />
+        <TextView
+            android:id="@+id/game_level"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/purple"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/pause_game"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_pause_101"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/time_label"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="1:30"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple"
+        android:gravity="center"
+        android:elevation="10dp"
+        android:layout_below="@+id/menu_layout"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/found_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_corners_shape_menu"
+        android:elevation="4dp"
+        android:layout_below="@+id/time_label"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/checkbox1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:background="@drawable/bg_checkbox_style"/>
+        <CheckBox
+            android:id="@+id/checkbox2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:clickable="false"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_checkbox_style"/>
+        <CheckBox
+            android:id="@+id/checkbox3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:clickable="false"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_checkbox_style"/>
+        <CheckBox
+            android:id="@+id/checkbox4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:clickable="false"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_checkbox_style"/>
+        <CheckBox
+            android:id="@+id/checkbox5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:clickable="false"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_checkbox_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_corners_shape_button"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="90dp"
+        android:elevation="4dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_ad_100"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="AD"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/purple"
+            android:layout_marginStart="16dp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_layout"
+        android:layout_below="@+id/found_layout"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical" />
+
+</RelativeLayout>

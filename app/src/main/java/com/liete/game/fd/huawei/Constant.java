@@ -5,6 +5,7 @@ public class Constant {
 
     public static final String SP_PROTOCOL_KEY = "user_protocol";
     public static final String SP_VIBRATOR_KEY = "vibrator_enabled";
+    public static final String SP_CURRENT_LEVEL_KEY = "current_level";
 
     public static final int DEFAULT_PROTOCOL_VALUE = 0;
     public static final int ENABLED_PROTOCOL_VALUE = 1;

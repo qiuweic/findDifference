@@ -5,7 +5,6 @@
     android:background="@drawable/bg_alert_big"
     android:orientation="vertical">
 
-
     <TextView
         android:id="@+id/dialog_title"
         android:layout_width="match_parent"
@@ -13,63 +12,78 @@
         android:layout_gravity="center"
         android:background="@drawable/bg_alert_header"
         android:gravity="center"
-        android:text="WELCOME"
-        android:elevation="10dp"
+        android:text="@string/text_win"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:text="@string/welcome_using"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:elevation="4dp"
+        android:background="@drawable/bg_corners_shape_win">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_star_100"/>
+
+        <ImageView
+            android:id="@+id/icon_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:src="@drawable/ic_game_win_101"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/ic_star_100"/>
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/tip_text"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/privacy_content" />
-
-    <CheckBox
-        android:id="@+id/checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/read_and_agreed" />
-
-    <TextView
-        android:id="@+id/btn_confirm"
+        android:id="@+id/btn_continue"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="42dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/button_round_corners_shape"
         android:gravity="center"
-        android:text="@string/btn_agree"
+        android:text="@string/text_continue"
+        android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/btn_cancel"
+        android:id="@+id/btn_exit"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="42dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="@string/disagree_and_exit" />
+        android:textStyle="bold"
+        android:textColor="@color/purple"
+        android:textSize="16sp"
+        android:text="@string/btn_exit" />
 
 </LinearLayout>

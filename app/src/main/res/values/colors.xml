@@ -13,9 +13,14 @@
     <color name="purple_100">#FFC2CDE7</color>
     <color name="green_100">#FF72CAAF</color>
     <color name="green_200">#FFC0E5E4</color>
+    <color name="green_300">#FFE7F9ED</color>
+    <color name="green_400">#FFC2EFDF</color>
     <color name="red_100">#FFED7899</color>
     <color name="yellow">#FFF9E3AE</color>
     <color name="yellow_100">#FFFAEFDE</color>
     <color name="blue_100">#FFBBDEF9</color>
+    <color name="blue_200">#FFDEEFFF</color>
+
+    <color name="pink">#FFEBE2DB</color>
 
 </resources>

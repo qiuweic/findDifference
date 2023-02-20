@@ -5,20 +5,27 @@
       <map>
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_alert_big.xml" value="0.15925925925925927" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_alert_header.xml" value="0.15925925925925927" />
+        <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_button_corner.xml" value="0.15648148148148147" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_checkbox_style.xml" value="0.14375" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_corners_shape_button.xml" value="0.17592592592592593" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_corners_shape_menu.xml" value="0.16145833333333334" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_corners_shape_vibration.xml" value="0.15925925925925927" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_corners_shape_win.xml" value="0.15648148148148147" />
+        <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_native_ad_button.xml" value="0.15648148148148147" />
+        <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_native_ad_corners_shape.xml" value="0.15648148148148147" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/bg_switch_style.xml" value="0.13489583333333333" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/drawable/button_round_corners_shape.xml" value="0.15925925925925927" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/activity_game.xml" value="0.17708333333333334" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/activity_main.xml" value="0.3104166666666667" />
+        <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/activity_tool_bar.xml" value="0.19322916666666667" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/activity_tool_bar2.xml" value="0.325" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/dialog_game_over.xml" value="0.325" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/dialog_game_pause.xml" value="0.325" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/dialog_game_win.xml" value="0.325" />
         <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/dialog_protocol.xml" value="0.325" />
+        <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/native_ad_3_images_template.xml" value="0.17708333333333334" />
+        <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/native_ad_small_template.xml" value="0.17708333333333334" />
+        <entry key="..\:/Works/02.Code/FindDiff/app/src/main/res/layout/native_ad_video_template.xml" value="0.17708333333333334" />
       </map>
     </option>
   </component>

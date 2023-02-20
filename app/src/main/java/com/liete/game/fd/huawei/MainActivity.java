@@ -39,10 +39,15 @@ public class MainActivity extends AppCompatActivity {
             showConsent();
         }
 
-        levelId = getCurrentLevelId();
         currentLevel = findViewById(R.id.btn_current_level);
-        currentLevel.setText("Level " + levelId);
         currentLevel.setOnClickListener(view -> startGameActivity());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        levelId = getCurrentLevelId();
+        currentLevel.setText("Level " + levelId);
     }
 
     private void startGameActivity() {

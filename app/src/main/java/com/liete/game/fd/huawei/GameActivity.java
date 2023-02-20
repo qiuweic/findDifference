@@ -25,17 +25,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.liete.game.fd.huawei.ad.AdManager;
+
 import java.util.Locale;
 
 public class GameActivity extends AppCompatActivity implements GameView.TouchListener {
 
     private LinearLayout gameViewLayout;
+    private LinearLayout adButton;
+
     private GameView gameView;
     private TextView timeLabel;
     private TextView gameLevel;
     private ImageView backToHome;
     private ImageView pauseGame;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5;
+
     private GameWinDialog winDialog;
     private GameOverDialog overDialog;
     private GamePausedDialog pausedDialog;
@@ -46,8 +51,14 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
     private boolean isPlaying = false;
 
 
+
     private Vibrator mVibrator;
     private boolean vibratorEnabled;
+
+    private AdManager adManager;
+    private int mCurrentActionType;
+    private boolean mRewarded;
+    private boolean mAdPrepared;
 
     private final Handler handler = new Handler(new Handler.Callback() {
         @Override
@@ -58,6 +69,11 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
                 case 1:
                     if (!isFinishing()) {
                         showTimeUpDialog();
+                    }
+                    break;
+                case 2:
+                    if (gameView != null) {
+                        gameView.drawOneDiff();
                     }
                     break;
             }
@@ -91,6 +107,12 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         pauseGame = findViewById(R.id.pause_game);
         pauseGame.setOnClickListener(view -> pauseOrResumeGame());
 
+        adButton = findViewById(R.id.bottom_layout);
+        adButton.setOnClickListener(view -> {
+            mCurrentActionType = Constant.ACTION_OBTAIN_TIPS;
+            showRewardAd(mCurrentActionType);
+        });
+
         gameLevel = findViewById(R.id.game_level);
         timeLabel = findViewById(R.id.time_label);
         checkBox1 = findViewById(R.id.checkbox1);
@@ -99,21 +121,43 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         checkBox4 = findViewById(R.id.checkbox4);
         checkBox5 = findViewById(R.id.checkbox5);
 
-        currentLevelId = 1;
+        currentLevelId = getIntent().getIntExtra("levelId", 1);
         gameLevel.setText("Level " + currentLevelId);
         initGameLevel(currentLevelId);
+
+        adManager = new AdManager(this);
+        mAdPrepared = false;
+        loadRewardAd();
+    }
+
+    private void updateAdButton(boolean clickable) {
+        adButton.setClickable(clickable);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.e("CCC", "onResume");
+        if (mRewarded) {
+            mRewarded = false;
+            if (mCurrentActionType == Constant.ACTION_OBTAIN_TIPS) {
+                handler.sendEmptyMessageDelayed(2, 1000);
+            } else if (mCurrentActionType == Constant.ACTION_GET_MORE_TIME) {
+                if (overDialog != null && overDialog.isShowing()) {
+                    overDialog.dismiss();
+                    totalTime += 60;
+                }
+            }
+        }
+
         if (pausedDialog != null && pausedDialog.isShowing()) {
             isPlaying = false;
         } else {
             isPlaying = true;
             startTimer();
         }
+
+
         checkVibratorEnabled();
     }
 
@@ -121,6 +165,7 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
     protected void onPause() {
         super.onPause();
         isPlaying = false;
+        saveCurrentLevelId();
     }
 
 
@@ -136,9 +181,6 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
 
         gameView = new GameView(this, width, height, levelId, this);
         gameViewLayout.addView(gameView, params);
-
-        LinearLayout nextLevel = findViewById(R.id.bottom_layout);
-        nextLevel.setOnClickListener(view -> loadNextLevel(currentLevelId + 1));
 
         isPlaying = true;
         startTimer();
@@ -200,6 +242,12 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         checkBox3.setChecked(false);
         checkBox4.setChecked(false);
         checkBox5.setChecked(false);
+    }
+
+    private void saveCurrentLevelId() {
+        SharedPreferences preferences = getSharedPreferences(Constant.SP_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(Constant.SP_CURRENT_LEVEL_KEY, currentLevelId).apply();
     }
 
     @Override
@@ -268,7 +316,8 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
             @Override
             public void doContinue() {
                 winDialog.dismiss();
-                loadNextLevel(currentLevelId + 1);
+                currentLevelId += 1;
+                loadNextLevel(currentLevelId);
             }
 
             @Override
@@ -292,8 +341,8 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         overDialog.setCallback(new GameOverDialog.DialogCallback() {
             @Override
             public void getMoreTime() {
-                overDialog.dismiss();
-                // loadRewardAd();
+                mCurrentActionType = Constant.ACTION_GET_MORE_TIME;
+                showRewardAd(mCurrentActionType);
             }
 
             @Override
@@ -349,5 +398,45 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         SharedPreferences preferences = getSharedPreferences(Constant.SP_NAME, Context.MODE_PRIVATE);
         int value = preferences.getInt(Constant.SP_VIBRATOR_KEY, Constant.ENABLED_VIBRATOR_VALUE);
         vibratorEnabled = value == Constant.ENABLED_VIBRATOR_VALUE;
+    }
+
+    private void showRewardAd(int actionType) {
+        updateAdButton(false);
+        mRewarded = false;
+        mCurrentActionType = actionType;
+        adManager.rewardAdShow(this, new AdManager.OnRewardAdShowListener() {
+            @Override
+            public void onRewarded() {
+                mRewarded = true;
+                loadRewardAd();
+            }
+
+            @Override
+            public void onRewardAdFailedToShow(int errorCode) {
+                loadRewardAd();
+            }
+
+            @Override
+            public void onAdClosed() {
+                loadRewardAd();
+            }
+        });
+    }
+
+    private void loadRewardAd() {
+        // testx9dtjwj8hp
+        adManager.loadRewardAd(this, Constant.SLOT_REWARD_TIPS);
+        adManager.setOnRewardAdLoadedListener(new AdManager.OnRewardAdLoadedListener() {
+            @Override
+            public void onAdLoaded(int statusCode) {
+                if (statusCode != 200) {
+                    mAdPrepared = false;
+                    Log.w("SUDOKU", "Load reward ad failed, errorCode:" + statusCode);
+                } else {
+                    mAdPrepared = true;
+                }
+                updateAdButton(mAdPrepared);
+            }
+        });
     }
 }

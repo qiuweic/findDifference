@@ -11,6 +11,10 @@ public class Constant {
     public static final int ENABLED_PROTOCOL_VALUE = 1;
     public static final int ENABLED_VIBRATOR_VALUE = 1;
 
+
+    public static final int ACTION_OBTAIN_TIPS = 100;
+    public static final int ACTION_GET_MORE_TIME = 101;
+
     // 隐私政策URL 【腾讯文档】码上生成_隐私政策 https://docs.qq.com/doc/DT1JQRFZIcHlxSmFW
     public static final String PRIVACY_URL_CN = "https://3a868r0517.goho.co/privacy/code-convert/cn/privacy.htm";
 
@@ -22,4 +26,6 @@ public class Constant {
 
     // 用户协议URL 【腾讯文档】 https://docs.qq.com/doc/DWW9MR3J3Y2xYbGdK?dver=
     public static final String PROTOCOL_URL_EN = "https://3a868r0517.goho.co/privacy/code-convert/en/protocol.htm";
+
+    public static final String SLOT_REWARD_TIPS = "testx9dtjwj8hp"; // testx9dtjwj8hp
 }

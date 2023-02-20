@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.huawei.hms.ads.nativead.NativeView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/native_video_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.huawei.hms.ads.nativead.MediaView
+            android:id="@+id/ad_media"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/left_bottom_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ad_media">
+
+            <TextView
+                android:id="@+id/ad_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:alpha="1"
+                android:textColor="#000000"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/ad_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="4dp"
+                android:layout_below="@id/ad_title"
+                android:background="@drawable/bg_native_ad_corners_shape"
+                android:gravity="center"
+                android:text="AD"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/ad_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ad_title"
+                android:layout_toEndOf="@+id/ad_flag"
+                android:gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="4dp"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/right_bottom_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ad_media"
+            android:layout_alignParentEnd="true">
+
+            <com.huawei.hms.ads.AppDownloadButton
+                xmlns:progress_button="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/app_download_btn"
+                android:layout_width="72dp"
+                android:layout_height="26dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                progress_button:hiad_maxWidth="96dp"
+                progress_button:hiad_minWidth="70dp"
+                progress_button:hiad_textColor="#FFFFFF"
+                progress_button:hiad_textSize="13sp" />
+
+            <TextView
+                android:id="@+id/ad_call_to_action"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:minWidth="70dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:background="@drawable/bg_native_ad_button"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</com.huawei.hms.ads.nativead.NativeView>

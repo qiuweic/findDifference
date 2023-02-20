@@ -88,6 +88,24 @@ public class GameView extends View {
         invalidate();
     }
 
+    public void drawOneDiff() {
+        for (int i = 0; i < diffVector.size(); i++) {
+            GameRule area = diffVector.elementAt(i);
+            if (!area.isClicked) {
+                area.isClicked = true;
+                foundCount++;
+                invalidate();
+
+                touchListener.onAccurateTouch();
+                if (foundCount >= diffCount) {
+                    Log.e("CCC", "You had found all difference.");
+                    touchListener.onFoundAll();
+                }
+                break;
+            }
+        }
+    }
+
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);

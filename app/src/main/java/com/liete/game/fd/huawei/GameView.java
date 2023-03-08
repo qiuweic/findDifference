@@ -28,6 +28,7 @@ public class GameView extends View {
     private boolean errorTouch;
     private final int pWidth;
     private final int pHeight;
+    private final float dpi;
 
     private int diffCount;
     private int foundCount;
@@ -53,10 +54,11 @@ public class GameView extends View {
         this.isPaused = isPaused;
     }
 
-    public GameView(Context context, int pWidth, int pHeight, int levelId, TouchListener touchListener) {
+    public GameView(Context context, int pWidth, int pHeight, int levelId, float dpi, TouchListener touchListener) {
         super(context);
         this.pWidth = pWidth;
         this.pHeight = pHeight;
+        this.dpi = dpi;
         this.touchListener = touchListener;
 
         diffVector = new Vector<>();
@@ -76,14 +78,17 @@ public class GameView extends View {
         foundCount = 0;
 
         int w = pWidth;
-        int h = pHeight / 2;
+        int h =  (pHeight - 10) / 2;
         float scaleX = (float) w / bmpTop.getWidth();
         float scaleY = (float) h / bmpTop.getHeight();
+        Log.i("CCC", "pWidth = " + pWidth + ", pHeight = " + pHeight);
+        Log.i("CCC", "w = " + w + ", h = " + h);
         Log.i("CCC", "scaleX = " + scaleX + ", scaleY = " + scaleY);
+        Log.i("CCC", "bmpTop.getWidth() = " + bmpTop.getWidth() + ", bmpTop.getHeight() = " + bmpTop.getHeight());
 
         diffVector.clear();
         for (int[] coordinate : coordinates) {
-            diffVector.addElement(new GameRule(coordinate, scaleX, scaleY, pHeight));
+            diffVector.addElement(new GameRule(coordinate, scaleX, w, h));
         }
         invalidate();
     }
@@ -179,7 +184,7 @@ public class GameView extends View {
 
     public void drawPicture(Canvas canvas) {
         int width = pWidth;
-        int height = pHeight / 2;
+        int height = (pHeight - 10) / 2;
         float scaleX = (float) width / bmpTop.getWidth();
         float scaleY = (float) height / bmpTop.getHeight();
         Paint paint = new Paint();

@@ -12,19 +12,19 @@ import android.util.Log;
  */
 public class GameRule {
     private final int[] info;
-    private final float scaleX;
-    private final float scaleY;
     private final Paint paint;
-
+    private final float scaleX;
     private final int pHeight;
+    private final int pWidth;
+
 
     boolean isClicked = false;
 
-    public GameRule(int[] info, float scaleX, float scaleY, int pHeight) {
+    public GameRule(int[] info, float scaleX, int pWidth, int pHeight) {
         this.info = info;
         this.scaleX = scaleX;
-        this.scaleY = scaleY;
         this.pHeight = pHeight;
+        this.pWidth = pWidth;
 
         paint = new Paint();
         paint.setColor(0xff03dac5);
@@ -34,23 +34,24 @@ public class GameRule {
 
     public void drawCoordinate(Canvas canvas) {
         canvas.save();
-        canvas.scale(scaleX, scaleY, info[0] , info[2]);
+        float scaleW = (float) pWidth / 700;
+        float scaleH = (float) pHeight / 525;
         canvas.restore();
-        if (isClicked) {
+        //if (isClicked) {
             for (int i = 0; i < 2; i++) {
-                canvas.drawRoundRect(new RectF(info[0] * scaleX , pHeight / 2 * i + info[1] * scaleY + i * 10, info[2] * scaleX, pHeight / 2 * i + info[3] * scaleY + i * 10),25, 25, paint);
+                canvas.drawRoundRect(new RectF(info[0] * scaleW , pHeight * i + info[1] * scaleH + i * 10, info[2] * scaleW, pHeight * i + info[3] * scaleH + i * 10),25, 25, paint);
             }
-        }
+        //}
     }
 
 
     public boolean isClick(float xx, float yy) {
-        Log.i("CCC", "xx = " + xx + ", yy = " + yy);
-        Log.i("CCC", "xx2 = " + xx / scaleX + ", yy2 = " + yy / scaleY);
+        float scaleW = (float) pWidth / 700;
+        float scaleH = (float) pHeight / 525;
+        //Log.i("CCC", "xx = " + xx + ", yy = " + yy);
+        Log.i("CCC", "xx2 = " + (xx / scaleW) + ", yy2 = " + (yy / scaleH));
         for (int i = 0; i < 2; i++) {
-            if (xx > info[0] * scaleX && xx < info[2] * scaleX && yy > pHeight / 2 * i + info[1] * scaleY + i * 10 && yy < pHeight / 2  * i + info[3] * scaleY) {
-                //Log.i("CCC", "info0 = " + info[0] + ", info1 = " + info[1] + ", info2 = " + info[2] + ", info3 = " + info[3]);
-                //Log.i("CCC", "infoX0 = " + info[0] * scaleX + ", infoY1 = " + info[1] * scaleY +  ", infoX2 = " + info[2] * scaleX + ", infoY3 = " + info[3] * scaleY) ;
+            if (xx > (info[0] * scaleW) && xx < (info[2] * scaleW) && yy > (pHeight * i + info[1] * scaleH + i * 10) && yy < (pHeight  * i + info[3] * scaleH)) {
                 return true;
             }
         }

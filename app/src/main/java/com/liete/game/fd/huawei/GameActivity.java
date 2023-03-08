@@ -173,14 +173,19 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int width = (int) (displayMetrics.widthPixels - 40);
-        int height = (int) (displayMetrics.heightPixels * 0.6f);
+        //int height = (int) (displayMetrics.heightPixels * 0.6f);
+        int height = (int) (width * 0.75 * 0.8 * 2 + 10);
+        float dpi = displayMetrics.densityDpi / 160;
+        Log.i("CCC", "widthPixels = " + displayMetrics.widthPixels
+                + ", heightPixels = " + displayMetrics.heightPixels
+                + ", dpi = " + displayMetrics.densityDpi);
 
         LinearLayout.LayoutParams params =
-                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER;
 
-        gameView = new GameView(this, width, height, levelId, this);
-        gameViewLayout.addView(gameView, params);
+        gameView = new GameView(this, width, height, levelId, dpi, this);
+        gameViewLayout.addView(gameView);
 
         isPlaying = true;
         startTimer();

@@ -28,7 +28,7 @@ public class GameRule {
 
         paint = new Paint();
         paint.setColor(0xff03dac5);
-        paint.setStrokeWidth(scaleX * 10); // 圆圈边框大小
+        paint.setStrokeWidth(scaleX * 15); // 圆圈边框大小
         paint.setStyle(Paint.Style.STROKE);
     }
 

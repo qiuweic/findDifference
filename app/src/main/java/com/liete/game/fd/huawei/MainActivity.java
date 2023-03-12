@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         levelId = getCurrentLevelId();
-        levelId = 80;
         currentLevel.setText("Level " + levelId);
     }
 

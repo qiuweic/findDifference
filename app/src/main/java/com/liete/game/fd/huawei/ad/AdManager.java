@@ -371,7 +371,7 @@ public class AdManager {
         interstitialAd.loadAd(adParam);
     }
 
-    private boolean showInterstitialAd(Activity activity) {
+    public boolean showInterstitialAd(Activity activity) {
         // 显示广告
         if (interstitialAd != null &&interstitialAd.isLoaded()) {
             interstitialAd.show(activity);

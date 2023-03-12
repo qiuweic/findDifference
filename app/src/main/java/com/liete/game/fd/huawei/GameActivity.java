@@ -28,6 +28,7 @@ import android.widget.TextView;
 import com.liete.game.fd.huawei.ad.AdManager;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class GameActivity extends AppCompatActivity implements GameView.TouchListener {
 
@@ -174,7 +175,7 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int width = (int) (displayMetrics.widthPixels - 40);
         //int height = (int) (displayMetrics.heightPixels * 0.6f);
-        int height = (int) (width * 0.75 * 0.8 * 2 + 10);
+        int height = (int) (width * 0.75 * 0.9 * 2 + 10);
         float dpi = displayMetrics.densityDpi / 160;
         Log.i("CCC", "widthPixels = " + displayMetrics.widthPixels
                 + ", heightPixels = " + displayMetrics.heightPixels
@@ -271,6 +272,7 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
     public void onFoundAll() {
         isPlaying = false;
         //Toast.makeText(this, "Found All", Toast.LENGTH_SHORT).show();
+        loadInterstitialAd();
         showWinDialog();
     }
 
@@ -321,6 +323,9 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
             @Override
             public void doContinue() {
                 winDialog.dismiss();
+                if (new Random().nextInt(10) > 3) {
+                    showInterstitialAd();
+                }
                 currentLevelId += 1;
                 loadNextLevel(currentLevelId);
             }
@@ -443,5 +448,13 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
                 updateAdButton(mAdPrepared);
             }
         });
+    }
+
+    private void loadInterstitialAd() {
+        adManager.loadInterstitialAd(this, Constant.SLOT_INTERSTITIAL_AD);
+    }
+
+    private void showInterstitialAd() {
+        adManager.showInterstitialAd(this);
     }
 }

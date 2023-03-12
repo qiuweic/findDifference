@@ -28,4 +28,6 @@ public class Constant {
     public static final String PROTOCOL_URL_EN = "https://3a868r0517.goho.co/privacy/code-convert/en/protocol.htm";
 
     public static final String SLOT_REWARD_TIPS = "testx9dtjwj8hp"; // testx9dtjwj8hp
+    public static final String SLOT_SPLASH_AD = "testq6zq98hecj"; // testq6zq98hecj
+    public static final String SLOT_INTERSTITIAL_AD = "teste9ih9j0rc3"; // teste9ih9j0rc3
 }

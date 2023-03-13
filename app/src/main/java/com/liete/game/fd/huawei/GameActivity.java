@@ -51,8 +51,6 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
     private long totalTime = 120;
     private boolean isPlaying = false;
 
-
-
     private Vibrator mVibrator;
     private boolean vibratorEnabled;
 
@@ -174,12 +172,8 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int width = (int) (displayMetrics.widthPixels - 40);
-        //int height = (int) (displayMetrics.heightPixels * 0.6f);
         int height = (int) (width * 0.75 * 0.9 * 2 + 10);
         float dpi = displayMetrics.densityDpi / 160;
-        Log.i("CCC", "widthPixels = " + displayMetrics.widthPixels
-                + ", heightPixels = " + displayMetrics.heightPixels
-                + ", dpi = " + displayMetrics.densityDpi);
 
         LinearLayout.LayoutParams params =
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -189,7 +183,6 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
         gameViewLayout.addView(gameView);
 
         isPlaying = true;
-        startTimer();
     }
 
     private void loadNextLevel(int levelId) {
@@ -277,6 +270,7 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
     }
 
     private void startTimer() {
+        Log.e("CCC", "startTimer...........");
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -303,6 +297,7 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
             handler.sendEmptyMessage(1);
         }
 
+        Log.e("CCC", "updateTime : " + totalTime);
         timeLabel.setTextColor(totalTime <= 30 ? getColor(R.color.red_100): getColor(R.color.purple));
         timeLabel.setText(formatTime(totalTime));
     }
@@ -333,6 +328,8 @@ public class GameActivity extends AppCompatActivity implements GameView.TouchLis
             @Override
             public void doExit() {
                 winDialog.dismiss();
+                currentLevelId += 1;
+                saveCurrentLevelId();
                 finish();
             }
         });

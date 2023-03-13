@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
-    android:background="#FFFFFF"
+    android:background="@color/yellow_100"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,8 +25,7 @@
             android:id="@+id/center_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#FFFFFF">
+            android:layout_weight="1">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -52,7 +51,7 @@
                         android:layout_alignParentEnd="true"
                         progress_button:hiad_maxWidth="96dp"
                         progress_button:hiad_minWidth="70dp"
-                        progress_button:hiad_textColor="#FFFFFF"
+                        progress_button:hiad_textColor="@color/purple"
                         progress_button:hiad_textSize="13sp" />
 
                     <TextView
@@ -65,7 +64,7 @@
                         android:minWidth="70dp"
                         android:paddingStart="4dp"
                         android:paddingEnd="4dp"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/purple"
                         android:textSize="12sp"
                         android:visibility="gone" />
                 </RelativeLayout>

@@ -21,4 +21,6 @@
     <string name="text_menu">Menu</string>
     <string name="text_privacy">Privacy</string>
     <string name="text_win">YOU WIN</string>
+
+    <string name="btn_exit_text">EXIT</string>
 </resources>

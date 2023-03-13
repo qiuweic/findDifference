@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
-    android:background="#FFFFFF"
+    android:background="@color/yellow_100"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -18,7 +18,7 @@
         <LinearLayout
             android:id="@+id/images_layout"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -59,13 +59,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/images_layout"
             android:layout_marginStart="@dimen/hiad_5_dp"
-            android:layout_marginEnd="@dimen/hiad_5_dp"
-            android:background="#FFFFFF">
+            android:layout_marginEnd="@dimen/hiad_5_dp">
             <!-- 广告标题 -->
             <TextView
                 android:id="@+id/ad_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="100dp"
                 android:alpha="1"
                 android:maxLines="2"
                 android:textColor="#000000"
@@ -105,23 +105,24 @@
                 xmlns:progress_button="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/app_download_btn"
                 android:layout_width="wrap_content"
-                android:layout_height="26dp"
+                android:layout_height="30dp"
                 android:minWidth="76dp"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="10dp"
                 progress_button:hiad_maxWidth="96dp"
                 progress_button:hiad_minWidth="70dp"
-                progress_button:hiad_textColor="#FFFFFF"
+                progress_button:hiad_textColor="@color/purple"
                 progress_button:hiad_textSize="13sp" />
 
             <!-- 广告点击行为按钮 -->
             <TextView
                 android:id="@+id/ad_call_to_action"
                 android:layout_width="wrap_content"
-                android:layout_height="26dp"
+                android:layout_height="30dp"
                 android:minWidth="70dp"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
@@ -129,8 +130,9 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/bg_native_ad_button"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/purple"
                 android:textSize="12sp"
                 android:visibility="gone"/>
         </RelativeLayout>

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
-    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -73,20 +72,20 @@
                 xmlns:progress_button="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/app_download_btn"
                 android:layout_width="72dp"
-                android:layout_height="26dp"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 progress_button:hiad_maxWidth="96dp"
                 progress_button:hiad_minWidth="70dp"
-                progress_button:hiad_textColor="#FFFFFF"
+                progress_button:hiad_textColor="@color/purple"
                 progress_button:hiad_textSize="13sp" />
 
             <TextView
                 android:id="@+id/ad_call_to_action"
                 android:layout_width="wrap_content"
-                android:layout_height="26dp"
+                android:layout_height="30dp"
                 android:minWidth="70dp"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
@@ -96,7 +95,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:background="@drawable/bg_native_ad_button"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/purple"
                 android:textSize="12sp"
                 android:visibility="gone"/>
         </RelativeLayout>

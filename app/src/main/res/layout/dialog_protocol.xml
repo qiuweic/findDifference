@@ -20,15 +20,6 @@
         android:textStyle="bold" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:text="@string/welcome_using"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/tip_text"
         android:layout_width="240dp"
         android:layout_height="wrap_content"

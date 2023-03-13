@@ -83,7 +83,7 @@ public class PrivacyActivity extends AppCompatActivity {
     protected void initToolbar(String title, boolean isDisplayHomeAsUpEnabled) {
         Toolbar toolbar = findViewById(R.id.toolbar2);
         TextView titleTv = toolbar.findViewById(R.id.title2);
-        titleTv.setText(title);
+        //titleTv.setText(title);
 
         //setTile 要在下面这句话上面，不然会失效
         setSupportActionBar(toolbar);
